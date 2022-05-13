@@ -6,7 +6,15 @@ const promptUser = () => {
     {
       type: 'input', 
       name: 'name', 
-      message: 'WHAT IS YOUR NAME?'
+      message: 'WHAT IS YOUR NAME? (REQUIRED)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else{
+          console.log('ENTER YOUR FREAKING NAME!');
+          return false;
+        }
+      }
     },
     {
       type: 'input',
@@ -16,12 +24,33 @@ const promptUser = () => {
     {
       type: 'input',
       name: 'github',
-      message: 'Enter your GitHub Username'
+      message: 'Enter your GitHub Username (REQUIRED)',
+      validate: githubInput => {
+        if (githubInput) {
+          return true;
+        } else {
+          console.log('ENTER GITHUB LINK!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm', 
+      name: 'confirmAbout',
+      message: 'WOULD YOU LIKE TO ADD AN ABOUT ME SECTION?',
+      default: true
     },
     {
       type: 'input',
       name: 'about',
-      message: 'Provide some information about yourself:'
+      message: 'Provide some information about yourself:', 
+      when: ({ confirmAbout }) => {
+        if (confirmAbout) {
+          return true;
+        } else {
+          return false;
+        }
+      }
     }
 
   ])
@@ -39,12 +68,28 @@ const promptProject = (portfolioData) => {
     {
       type: 'input',
       name: 'name',
-      message: 'What is the name of your project?'
+      message: 'What is the name of your project? (REQUIRED)', 
+      validate: projectNameInput => {
+        if (projectNameInput) {
+          return true
+        } else {
+          console.log('ENTER DESCRIPTION');
+          return false;
+        }
+      }
     },
     {
       type: 'input',
       name: 'description',
-      message: 'Provide a description of the project (Required)'
+      message: 'Provide a description of the project (Required)', 
+      validate: projectDescriptInput => {
+        if (projectDescriptInput) {
+          return true
+        } else {
+          console.log('ENTER DESCRIPTION');
+          return false;
+        }
+      }
     },
     {
       type: 'checkbox',
