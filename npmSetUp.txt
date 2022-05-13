@@ -1,0 +1,7 @@
+npm init
+https://docs.npmjs.com/files/package.json
+
+add file to git ignore from command line
+echo "file-name/" > .gitignore
+
+If the node_modules folder was accidentally tracked by git, use the following command to remove the tracking: git rm -r --cached node_modules.

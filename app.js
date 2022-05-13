@@ -1,26 +1,28 @@
-// var message = 'WADDUP NODE!';
-// var sum = 4 + 4;
+const inquirer = require('inquirer');
+console.log(inquirer);
 
+inquirer
+  .prompt([
+    {
+      type: 'input', 
+      name: 'name', 
+      message: 'WHAT IS YOUR NAME?'
+    },
+    {
+      type: 'input',
+      name: 'job', 
+      message: 'WHAT IS YOUR JOB?'
+    }
+  ])
+  .then(answers => console.log(answers));
+  
+// const fs = require('fs'); 
+// const generatePage = require('./src/page-template');
 
-// console.log(message);
-// console.log(sum);
+// const pageHTML = generatePage(name, github);
 
-// var commandLineArgs = process.argv;
-// console.log(commandLineArgs);
+// fs.writeFile('./index.html', pageHTML, err => {
+//   if (err) throw err;
 
-
-const profileDataArgs = process.argv.slice(2);
-
-const printProfileData = profileDataArr => {
-  // This...
-  for (let i = 0; i < profileDataArr.length; i += 1) {
-    console.log(profileDataArr[i]);
-  }
-
-  console.log('================');
-
-  // Is the same as this...
-  profileDataArr.forEach(profileItem => console.log(profileItem));
-};
-
-printProfileData(profileDataArgs);
+//   console.log('PORTFOLIO COMPLETE!! CHECK THE INDEX.HTML!!');
+// });
